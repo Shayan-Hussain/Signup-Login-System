@@ -41,6 +41,8 @@ const create_user = () => {
 const welcome_user = (user) => {
     document.getElementById("sign_in_block").innerHTML = "";
     document.getElementById("welcome_text_login").textContent = `Hi ${user}!`
+    let heading = document.getElementById("welcome_text_login");
+    heading.style.gridArea = "sign_up_block"
 }
 
 const not_registered = () => {
@@ -50,6 +52,12 @@ const not_registered = () => {
     heading.classList.add("fade_in_animation");
     heading.textContent = `🥲 looks like you are not registered with us. Visit the Sign Up page 👆🏻 to register now!`;
 }
+
+const change_placeholder_red = () => {
+    document.getElementById("password_input").placeholder = "Password not matched!";
+    document.getElementById("password_input").classList.add("red_placeholder");
+}
+
 const fetch_user = () => {
 
     let users_data = get_users_data();
@@ -61,11 +69,10 @@ const fetch_user = () => {
 
     if (found_user) {
         let password = atob(found_user.password);
-        if (password === password_input) {
+        if (password == password_input) {
             welcome_user(found_user.name);
-        } else {
-            document.getElementById("password_input").placeholder = "Password not matched!";
-            document.getElementById("password_input").classList.add("red_placeholder");
+        } else if (password !== password_input) {
+            change_placeholder_red();
         }
     } else {
         not_registered();

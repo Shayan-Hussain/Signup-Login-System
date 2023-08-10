@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="/favicon-32x32.png">
 </head>
 <body>
     <header>
@@ -22,11 +22,12 @@
         <div class="welcome_text_login" id="welcome_text_login">Welcome to Sign in page!</div>
         <div class="sign_in_block" id="sign_in_block">
             <form class="sign_in_form">
-                <input type="text" placeholder="Username" id="username_input" value="">
-                <input type="password" placeholder="Password" id="password_input" class="password_input" value="">
+                <input type="text" placeholder="Username" id="username_input" value="" autocomplete="off">
+                <input type="password" placeholder="Password" id="password_input" class="password_input" value="" autocomplete="off">
                 <button type="submit" class="sub_btn" onclick="fetch_user()">Sign In</button>
             </form>
         </div>
+        <div class="login_discription">Here you can sign in using the username and password that you enterd in the sign up page. That data of yours is stored in local storage in an array. On successfull login it will greet you with your name! If you enter a wrong password it will tell you that the password you entered is wrong. If it can't find your username, it will ask you to register.</div>
     </main>
     <footer>
         <span class="footer">© Copyright 2023 Shayan Zardari. Github: <a href="https://github.com/Shayan-Hussain" target="_blank">github.com/Shayan-Hussain</a></span>

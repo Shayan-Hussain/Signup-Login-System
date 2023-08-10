@@ -16,6 +16,8 @@ header, footer {
     display: flex;
     background-color: #1a181b;
     font-family: sans-serif;
+    position: sticky;
+    top: 0;
 }
 
 .main_body {
@@ -28,7 +30,7 @@ header, footer {
     grid-template-areas: 
         ".      welcome       ."
         ".      sign_up_block       ."
-        ".      .       ."
+        ".      discription       ."
 }
 
 h1 {
@@ -121,10 +123,11 @@ footer {
 
 .footer {
     color: white;
+    font-size: medium;
 }
 
 .red_placeholder::placeholder {
-    color: red
+    color: red 
 }
 
 /* Sign Up Page design */
@@ -154,6 +157,17 @@ footer {
     justify-content: space-around;
     align-items: center;
 }
+.signup_discription {
+    font-family: sans-serif;
+    color: white;
+    font-weight: 100;
+    font-size: xx-large ;
+    grid-area: discription;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 /* Sign In Page design */
 
@@ -181,6 +195,53 @@ footer {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+.login_discription {
+    font-family: sans-serif;
+    color: white;
+    font-weight: 100;
+    font-size: xx-large ;
+    grid-area: discription;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media (max-width: 1000px) {
+    .login_discription {
+        font-size: x-large;
+    }
+    .signup_discription {
+        font-size: x-large;
+    }
+    .welcome_text_login {
+        font-size: x-large;
+    }
+    .welcome_text_signup {
+        font-size: x-large;
+    }
+    .footer {
+        font-size: small;
+    }
+}
+
+@media (max-width: 560px) {
+    .login_discription {
+        font-size: medium;
+    }
+    .signup_discription{
+        font-size: medium;
+    }
+    .welcome_text_login {
+        font-size: medium;
+    }
+    .welcome_text_signup {
+        font-size: medium;
+    }
+    .main_body {
+        grid-template-columns: 5% 80% 5%;
+    }
 }
 
 /* animation */
