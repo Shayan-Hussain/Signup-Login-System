@@ -1,0 +1,200 @@
+
+/* Common designs */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+header, footer {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    background-color: #1a181b;
+    font-family: sans-serif;
+}
+
+.main_body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #564d65;
+    display: inline-grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 40% 50%;
+    grid-template-areas: 
+        ".      welcome       ."
+        ".      sign_up_block       ."
+        ".      .       ."
+}
+
+h1 {
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+    color: #3e8989;
+    text-shadow: 1px 1px 10px #1a181b, 1px 1px 10px #1a181b;
+    
+
+}
+header {
+    justify-content: flex-end;
+}
+
+nav {
+    padding: 30px 10%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    padding: 20px;
+    padding-top: 11px;
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: "Abril Fatface" sans-serif;
+    font-weight: 400;
+}
+
+.logo {
+    margin-right: auto;
+    padding: 30px 10%;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+#logo_ahr {
+    font-family: "Dancing Script";
+    font-size: xx-large;
+    font-weight: 600;
+    text-shadow: 1px 1px 5px #ffffff;
+}
+
+input, button {
+    height: 40px;
+    width: 70%;
+    padding-left: 10px;
+    border-radius: 20px;
+    color: black;
+    font-size: medium;
+}
+.sub_btn {
+    font-size: medium;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+    color: white;
+    background-color: #3e8989;
+    transition: all ease .1s .1s;
+}
+.sub_btn:hover {
+    width: 110px;
+    height: 45px;
+    border-radius: 25px;
+    background-color: #317272;
+}
+.sub_btn:active {
+    transform: translateY(5px);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    color: white;
+}
+
+.red_placeholder::placeholder {
+    color: red
+}
+
+/* Sign Up Page design */
+
+.welcome_text_signup {
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+    grid-area: welcome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: xx-large
+}
+
+.sign_up_block {
+    grid-area: sign_up_block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign_up_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Sign In Page design */
+
+.welcome_text_login {
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+    grid-area: welcome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: xx-large
+}
+
+.sign_in_block {
+    grid-area: sign_up_block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign_in_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade_in_animation {
+    opacity: 0;
+    animation: fadeIn .2s ease-in-out forwards;
+}
