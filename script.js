@@ -24,12 +24,12 @@ const create_user = () => {
     let password_input = document.getElementById("password_input").value;
 
     if (name_input == "" || username_input == "" || password_input == "") {
-        alert("Please enter the details to sign up!")
+        alert("Please enter full details to sign up!")
     }   else    {
         let user = {
             name : name_input,
             username : username_input,
-            password : `${btoa(password_input)}`
+            password : `${btoa(password_input)}`,
         }
         users_data.push(user);
     }
@@ -42,7 +42,7 @@ const welcome_user = (user) => {
     document.getElementById("sign_in_block").innerHTML = "";
     document.getElementById("welcome_text_login").textContent = `Hi ${user}!`
     let heading = document.getElementById("welcome_text_login");
-    heading.style.gridArea = "sign_up_block"
+    heading.style.gridArea = "sign_up_block";
 }
 
 const not_registered = () => {
@@ -59,7 +59,7 @@ const change_placeholder_red = () => {
 }
 
 const fetch_user = () => {
-
+    
     let users_data = get_users_data();
     
     let username_input = document.getElementById("username_input").value;
@@ -67,13 +67,14 @@ const fetch_user = () => {
 
     let found_user = users_data.find((user) => user.username === username_input);
 
-    if (found_user) {
+    if (found_user !== undefined ) {
         let password = atob(found_user.password);
         if (password == password_input) {
             welcome_user(found_user.name);
-        } else if (password !== password_input) {
+        } else {
+            password_input = "";
             change_placeholder_red();
-        }
+        } 
     } else {
         not_registered();
     }
