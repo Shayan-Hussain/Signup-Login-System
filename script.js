@@ -30,6 +30,7 @@ const create_user = () => {
             name : name_input,
             username : username_input,
             password : `${btoa(password_input)}`,
+            signedin : false
         }
         users_data.push(user);
     }
@@ -39,10 +40,14 @@ const create_user = () => {
 }
 
 const welcome_user = (user) => {
-    document.getElementById("sign_in_block").innerHTML = "";
-    document.getElementById("welcome_text_login").textContent = `Hi ${user}!`
-    let heading = document.getElementById("welcome_text_login");
-    heading.style.gridArea = "sign_up_block";
+
+    user.signedin = true;
+
+    let heading = document.getElementById("welcome_text_account");
+
+    heading.innerHTML = `hello ${user.username}`
+
+    window.location.href = "account.html";
 }
 
 const not_registered = () => {
@@ -58,24 +63,34 @@ const change_placeholder_red = () => {
     document.getElementById("password_input").classList.add("red_placeholder");
 }
 
-const fetch_user = () => {
+const fetch_user = (event) => {
+
+    event.preventDefault();
     
     let users_data = get_users_data();
     
     let username_input = document.getElementById("username_input").value;
     let password_input = document.getElementById("password_input").value;
 
-    let found_user = users_data.find((user) => user.username === username_input);
+    if (username_input == "" || password_input == "") {
+        alert("Please enter your credentials to login!");
+        return;
+        }   else    {
+        let found_user = users_data.find((user) => user.username === username_input);
 
-    if (found_user !== undefined ) {
-        let password = atob(found_user.password);
-        if (password == password_input) {
-            welcome_user(found_user.name);
+        if (found_user !== undefined ) {
+            password = atob(found_user.password);
+            if (password == password_input) {
+                console.log("hello");
+                welcome_user(found_user);
+            }   else    {
+                password_input = " ";
+                change_placeholder_red();
+            }
         } else {
-            password_input = "";
-            change_placeholder_red();
-        } 
-    } else {
-        not_registered();
+            not_registered();
+        }
     }
 }
+
+ document.getElementById("login_form").addEventListener("submit", fetch_user);

@@ -24,7 +24,7 @@
             <form class="sign_in_form" id="login_form">
                 <input type="text" placeholder="Username" id="username_input" value="" autocomplete="off">
                 <input type="password" placeholder="Password" id="password_input" class="password_input" value="" autocomplete="off">
-                <button type="submit" class="sub_btn" onclick="fetch_user()">Sign In</button>
+                <button type="submit" class="sub_btn" onclick="fetch_user(event)">Sign In</button>
             </form>
         </div>
         <div class="login_discription">Here you can sign in using the username and password that you enterd in the sign up page. That data of yours is stored in local storage in an array. On successfull login it will greet you with your name! If you enter a wrong password it will tell you that the password you entered is wrong. If it can't find your username, it will ask you to register.</div>
