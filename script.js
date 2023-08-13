@@ -41,13 +41,15 @@ const create_user = () => {
 
 const welcome_user = (user) => {
 
-    user.signedin = true;
+    window.location.href = "account.html";
 
     let heading = document.getElementById("welcome_text_account");
 
-    heading.innerHTML = `hello ${user.username}`
+    console.log(heading.innerHTML)
 
-    window.location.href = "account.html";
+    // heading.innerHTML = `hello ${user.username}`
+
+
 }
 
 const not_registered = () => {
