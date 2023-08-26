@@ -1,6 +1,5 @@
 
 const get_users_data = () => {
-
     if (localStorage.getItem("users_data") == null) {
         localStorage.setItem("users_data", "[]")
         return JSON.parse(localStorage.getItem("users_data"))
@@ -16,8 +15,8 @@ const set_user_data = (users_data) => {
 }
 
 const create_user = () => {
-
     let users_data = get_users_data();
+
 
     let name_input = document.getElementById("name_input").value;
     let username_input = document.getElementById("username_input").value;
@@ -43,12 +42,11 @@ const welcome_user = (user) => {
 
     window.location.href = "account.html";
 
-    let heading = document.getElementById("welcome_text_account");
+    let heading = document.querySelector(".welcome_text_account");
 
-    console.log(heading.innerHTML)
+    console.log(heading);
 
-    // heading.innerHTML = `hello ${user.username}`
-
+    heading.innerHTML = `hello ${user.username}`
 
 }
 
@@ -95,4 +93,6 @@ const fetch_user = (event) => {
     }
 }
 
- document.getElementById("login_form").addEventListener("submit", fetch_user);
+let form = document.getElementById("login_form");
+    
+    form.addEventListener("submit", fetch_user);
